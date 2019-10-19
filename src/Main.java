@@ -4,6 +4,7 @@ import container.QueueContainer;
 import container.StackContainer;
 import factory.TaskContainerFactory;
 import model.MessageTask;
+import runner.StrategyTaskRunner;
 import sortArray.SortingStrategy;
 import sortArray.SortingTask;
 
@@ -58,7 +59,7 @@ public class Main {
         System.out.println(queueContainer.remove());
         System.out.println(queueContainer.remove() + "\n");
 
-        System.out.println("Cerinta 6");
+        System.out.println("Cerinta 6-7");
         System.out.println();
         TaskContainerFactory taskContainerFactory = TaskContainerFactory.getInstance();
         Container container[] = {taskContainerFactory.createContainer(ContainerStrategy.LIFO), taskContainerFactory.createContainer(ContainerStrategy.FIFO)};
@@ -73,6 +74,14 @@ public class Main {
         container[1].add(taskuri[1]);
         System.out.println(container[1].remove());
         System.out.println(container[1].remove() + "\n");
+
+        System.out.println("Cerinta 10");
+        System.out.println();
+        StrategyTaskRunner strategyTaskRunner = new StrategyTaskRunner(ContainerStrategy.LIFO);
+        for (MessageTask task : taskuri)
+            strategyTaskRunner.addTask(task);
+        strategyTaskRunner.executeAll();
+        System.out.println();
 
     }
 
