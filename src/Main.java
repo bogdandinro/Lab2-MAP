@@ -15,5 +15,8 @@ public class Main {
         System.out.println("Sortare folosind MergeSort:");
         sortingTaskMergeSort.execute();
         System.out.println();
+
+        System.out.println("Cerinta 4");
+        System.out.println();
     }
 }
