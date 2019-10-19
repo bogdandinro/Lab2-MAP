@@ -1,3 +1,5 @@
+import container.QueueContainer;
+import container.StackContainer;
 import model.MessageTask;
 import sortArray.SortingStrategy;
 import sortArray.SortingTask;
@@ -38,6 +40,22 @@ public class Main {
 
         System.out.println("Cerinta 5");
         System.out.println();
+
+        System.out.println("Stack");
+        StackContainer stackContainer =new StackContainer();
+        stackContainer.add(taskuri[0]);
+        stackContainer.add(taskuri[1]);
+        System.out.println(stackContainer.remove());
+        System.out.println(stackContainer.remove() + "\n");
+
+        System.out.println("Queue");
+        QueueContainer queueContainer = new QueueContainer();
+        queueContainer.add(taskuri[0]);
+        queueContainer.add(taskuri[1]);
+        System.out.println(queueContainer.remove());
+        System.out.println(queueContainer.remove() + "\n");
+
+
     }
 
 }
