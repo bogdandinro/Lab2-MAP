@@ -1,14 +1,9 @@
-
-
-import formatter.Constants;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
-import static formatter.Constants.DATE_TIME_FORMATTER;
+package model;
 
 public abstract class Task {
     private String taskID,descriere;
+
+    public Task(){}
 
     public Task(String taskID, String descriere) {
         this.taskID = taskID;
@@ -60,28 +55,6 @@ public abstract class Task {
         hash = 53 * hash + (this.taskID !=null ? this.taskID.hashCode() : 0);
         return hash;
     }
-     abstract void execute();
-}
 
-//o sa dea eroare clasa asta pana implementam methoda execute
-public class MessageTask extends Task{
-    private String mesaj,from,to;
-    private LocalDateTime date;
-
-    public MessageTask(String taskID, String descriere, String mesaj, String from, String to, LocalDateTime date) {
-        super(taskID, descriere);
-        this.mesaj = mesaj;
-        this.from = from;
-        this.to = to;
-        this.date = date;
-    }
-    @Override
-    public String toString(){
-        return super.toString() + "   |message:" + mesaj + "   |from=" + from + "   |to=" + to + "   |date=" + date.format(Constants.DATE_TIME_FORMATTER);
-    }
-    @Override
-    public void execute(){
-        System.out.println(toString());
-    }
-
+    public abstract void execute();
 }
