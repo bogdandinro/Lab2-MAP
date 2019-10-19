@@ -4,6 +4,7 @@ import container.QueueContainer;
 import container.StackContainer;
 import factory.TaskContainerFactory;
 import model.MessageTask;
+import runner.PrinterTaskRunner;
 import runner.StrategyTaskRunner;
 import sortArray.SortingStrategy;
 import sortArray.SortingTask;
@@ -81,6 +82,15 @@ public class Main {
         for (MessageTask task : taskuri)
             strategyTaskRunner.addTask(task);
         strategyTaskRunner.executeAll();
+        System.out.println();
+
+        System.out.println("Cerinta 11-14");
+        System.out.println();
+        System.out.println("PrinterTaskRuner:");
+        strategyTaskRunner.addTask(taskuri[0]);
+        strategyTaskRunner.addTask(taskuri[1]);
+        PrinterTaskRunner printerTaskRunner = new PrinterTaskRunner(strategyTaskRunner);
+        printerTaskRunner.executeAll();
         System.out.println();
 
     }
